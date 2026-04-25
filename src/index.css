@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap');
+
+:root {
+  --brand-bg: #030712;
+  --brand-primary: #6366f1;
+  --brand-accent: #22d3ee;
+  --brand-surface: rgba(15, 23, 42, 0.6);
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+.light {
+  --brand-bg: #f9fafb;
+  --brand-primary: #4f46e5;
+  --brand-accent: #0891b2;
+  --brand-surface: rgba(255, 255, 255, 0.8);
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-surface: var(--brand-surface);
+  
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-[var(--text-primary)] font-sans transition-colors duration-300 selection:bg-brand-accent/30;
+  }
+  
+  p {
+    @apply text-[var(--text-secondary)];
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-brand-surface border border-[var(--border-color)] backdrop-blur-xl rounded-xl;
+  }
+  
+  .bento-grid {
+    @apply grid gap-4 md:grid-cols-4 md:grid-rows-4;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-linear-to-r from-brand-primary to-brand-accent font-display;
+  }
+}
+
+/* Custom Hide Scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Hide Scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
